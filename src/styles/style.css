@@ -1,0 +1,44 @@
+body {
+  box-sizing: border-box;
+}
+
+#score-data {
+  border: 1px solid black;
+  padding: 0 10px;
+}
+
+#score-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+#score-title h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#Leaderboard-container {
+  display: flex;
+  gap: 10px;
+}
+#score-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+#score-form {
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type='submit'] {
+  width: fit-content;
+  align-self: flex-end;
+}

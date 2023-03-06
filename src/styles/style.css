@@ -23,6 +23,7 @@ body {
   display: flex;
   gap: 10px;
 }
+
 #score-container {
   width: 40%;
   margin: 0 auto;

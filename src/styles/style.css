@@ -1,17 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&family=Josefin+Sans:wght@600&family=Overpass&display=swap');
+
+:root {
+  --background-color: #2a2f33;
+  --text-color: #bbb6a5;
+  --border-color: #8c8c9c;
+  --alegreya: 'Alegreya Sans SC', sans-serif;
+  --josefin: 'Josefin Sans', sans-serif;
+  --overpass: 'Overpass', sans-serif;
+}
+
 body {
   box-sizing: border-box;
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--overpass);
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+h1 {
+  font-family: var(--josefin);
+}
+
+h2 {
+  font-family: var(--alegreya);
 }
 
 #score-data {
-  border: 1px solid black;
+  min-height: 1rem;
+  border: 1px solid var(--border-color);
   padding: 0 10px;
+  border-radius: 10px;
 }
 
 #score-title {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 5px;
+  margin-bottom: 5px;
 }
 
 #score-title h2 {
@@ -19,9 +53,34 @@ body {
   padding: 0;
 }
 
+#refresh,
+#submit {
+  background: none;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+#refresh:hover,
+#submit:hover {
+  transform: scale(1.1);
+  background-color: #8c9491;
+  color: #75e6da;
+}
+
 #Leaderboard-container {
   display: flex;
   gap: 10px;
+}
+
+#leader-img-container {
+  width: 40px;
+}
+
+#leader-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 #score-container {
@@ -33,6 +92,10 @@ body {
   margin: 0 auto;
 }
 
+#score-form h2 {
+  margin-top: 0;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -42,4 +105,36 @@ form {
 input[type='submit'] {
   width: fit-content;
   align-self: flex-end;
+}
+
+input[type='text'],
+input[type='number'] {
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  outline: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#github-link img {
+  width: 25px;
+}
+
+.rotate-icon {
+  transition: transform 0.3s ease-out;
+}
+
+.rotate-link:hover .rotate-icon {
+  transform: rotate(360deg);
 }

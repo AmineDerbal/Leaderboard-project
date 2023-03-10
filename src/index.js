@@ -1,14 +1,14 @@
 import './styles/style.css';
 import LeaderboardImageSrc from './assets/leader.png';
 import githubImageSrc from './assets/git-github-hub-icon-25.png';
-import { getGameId, submitNewScore, getAllScores } from './modules/Leaderboard.js';
+import { submitNewScore, getAllScores } from './modules/Leaderboard.js';
 import UserInterface from './modules/UserInterface.js';
 
 const submitButton = document.getElementById('submit');
 const refreshButton = document.getElementById('refresh');
 const nameInput = document.getElementById('name');
 const scoreInput = document.getElementById('score');
-let gameId = '';
+
 let ui = '';
 
 const loadPageImages = () => {
@@ -26,13 +26,14 @@ const loadPageImages = () => {
 
 window.onload = async () => {
   loadPageImages();
-  gameId = await getGameId();
   ui = new UserInterface();
+  const scores = await getAllScores();
+  ui.renderScores(await scores.result);
 };
 
 refreshButton.addEventListener('click', async (e) => {
   e.preventDefault();
-  const scores = await getAllScores(gameId);
+  const scores = await getAllScores();
   ui.renderScores(await scores.result);
 });
 submitButton.addEventListener('click', async (e) => {
@@ -41,6 +42,6 @@ submitButton.addEventListener('click', async (e) => {
     return;
   }
 
-  await submitNewScore(gameId, nameInput.value, scoreInput.value);
+  await submitNewScore(nameInput.value, scoreInput.value);
   ui.clearInputs();
 });
